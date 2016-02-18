@@ -1,0 +1,29 @@
+/*
+Mark Allred
+A01647260
+January 19, 2016
+This program matches the output from the Snow Report provided on Canvas.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "New Snow Report\n";
+    cout << "Friday, January 11, 2013\n";
+    cout << "\n";
+    cout << "\t\tAlta..............32 inches\n";
+    cout << "\t\tBeaver............22 inches\n";
+    cout << "\t\tBrighton..........34 inches!\a\n";
+// Includes beep immediately following !
+    cout << "\t\tPark City.........19 inches\n";
+    cout << "\t\tSnowbird..........10 inches\n";
+    cout << "\t\tSolitude..........25 inches\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "It is a great day for snow Today!\a\n";
+    cout << endl;
+    
+    return 0;
+}
