@@ -1,0 +1,76 @@
+/*
+ Mark Allred
+ A01647260
+ HW #3
+ Traveling in Vans
+ Program determines the cost of fare and the number of vans needed to transport a company's employees to a ski resort.
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+// Initial variables
+    int employees;
+    employees = 115;
+    int vansize;
+    vansize = 14;
+    float passengercost;
+    passengercost = 12.5;
+    float taxrate;
+    taxrate = .0675;
+    
+// Variables for vans and seats
+    float numbervans;
+    numbervans = employees / vansize;
+    float remainder;
+    remainder = employees % vansize;
+    float remainingseats;
+    remainingseats = vansize - remainder;
+// Because we weren't taught if/else statements
+    int vantotal;
+    vantotal = numbervans + 1;
+
+// Variables for determining cost
+    float totalfare;
+    totalfare = employees * passengercost;
+    float salestax;
+    salestax = taxrate * totalfare;
+    double totalcost;
+    totalcost = totalfare + salestax;
+    
+// Report Heading
+    cout << "Employee Ski Resort Trip Report\n";
+    cout << endl;
+
+    cout << "Logistics\n";
+    
+// Output how many passengers there are
+    cout << employees << " employees are going to the ski resort today.\n";
+
+// Output how many vans will be used
+    cout << employees << " divided by " << vansize << " does not equal a whole number, " << numbervans << " and " << remainder << " remaining!" << endl;
+    cout << "The company will need one more van, which means "<< vantotal << " vans will be used.\n";
+    
+// Output the number of seats that will be unoccupied
+    cout << "The last van will have " << remainingseats << " seats remaining.\n";
+    cout << endl;
+    
+// Output financials
+    cout << "Financial Breakdown\n";
+    
+// Output the cost of the fare
+    cout << "Total Fare..........." << totalfare << endl;
+    
+// Output the total sales tax
+    cout << "Sales Tax.............." << salestax << endl;
+    
+// Output the total bill
+    cout << "Total Cost..........." << totalcost << endl;
+    
+    
+    return 0;
+}
