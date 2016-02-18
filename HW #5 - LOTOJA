@@ -1,0 +1,141 @@
+//  Mark Allred
+//  A01647260
+//  HW #5 Lotoja
+//  This program takes times received in intervals during the LOTOJA race and determines speed throughout race
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main ()
+{
+    //  constants throughout program
+    const int CHECKPOINT1 = 44;
+    const int CHECKPOINT2 = 87;
+    const int CHECKPOINT3 = 128;
+    const int CHECKPOINT4 = 165;
+    const int CHECKPOINT5 = 207;
+    const int HOUR = 60;
+    
+    //  determines distance between checkpoints
+    int interval1distance;
+    interval1distance = CHECKPOINT1;
+    int interval2distance;
+    interval2distance = CHECKPOINT2 - CHECKPOINT1;
+    int interval3distance;
+    interval3distance = CHECKPOINT3 - CHECKPOINT2;
+    int interval4distance;
+    interval4distance = CHECKPOINT4 - CHECKPOINT3;
+    int interval5distance;
+    interval5distance = CHECKPOINT5 - CHECKPOINT4;
+    
+    //  input racer's name
+    string racername;
+    cout << "Enter the racer's name: ";
+    cin >> racername;
+    
+    // input times for each interval
+    int timetopoint1;
+    cout << "Enter the time (in minutes) at Check Point 1: ";
+    cin >> timetopoint1;
+
+    int timetopoint2;
+    cout << "Enter the time (in minutes) at Check Point 2: ";
+    cin >> timetopoint2;
+    
+    int timetopoint3;
+    cout << "Enter the time (in minutes) at Check Point 3: ";
+    cin >> timetopoint3;
+    
+    int timetopoint4;
+    cout << "Enter the time (in minutes) at Check Point 4: ";
+    cin >> timetopoint4;
+    
+    int timetopoint5;
+    cout << "Enter the time (in minutes) at the finish line: ";
+    cin >> timetopoint5;
+
+    cout << endl;
+    
+    // determines time between checkpoints
+    int interval1time;
+    interval1time = timetopoint1;
+    
+    int interval2time;
+    interval2time = timetopoint2 - timetopoint1;
+    
+    int interval3time;
+    interval3time = timetopoint3 - timetopoint2;
+    
+    int interval4time;
+    interval4time = timetopoint4 - timetopoint3;
+    
+    int interval5time;
+    interval5time = timetopoint5 - timetopoint4;
+    
+    int totaltime;
+    totaltime = interval1time + interval2time + interval3time + interval4time + interval5time;
+
+    //  determine mph
+    float speed1;
+    speed1 = interval1distance / (interval1time / static_cast<float>(HOUR));
+    float speed2;
+    speed2 = interval2distance / (interval2time / static_cast<float>(HOUR));
+    float speed3;
+    speed3 = interval3distance / (interval3time / static_cast<float>(HOUR));
+    float speed4;
+    speed4 = interval4distance / (interval4time / static_cast<float>(HOUR));
+    float speed5;
+    speed5 = interval5distance / (interval5time / static_cast<float>(HOUR));
+    float averagespeed;
+    averagespeed = CHECKPOINT5 / (totaltime / static_cast<float>(HOUR));
+    
+    //  Beginning report -- header 1
+    cout << "LOTOJA Race report for " << racername << "\n";
+    cout << endl;
+    
+    //  header 2
+    cout << setw(33) << "Interval Details\n";
+    cout << endl;
+    
+    //  header 3
+    cout << setw(15) << left << "Location" << setw(15) << "Distance (m)" << setw(10) << "Time" << setw(10) << "Speed (mph)\n";
+    
+    //  sets decimal precision
+    cout << setprecision(3) << fixed;
+    
+    // reports interval details
+    cout << setw(18) << setfill('.') << "Interval 1";
+    cout << setw(12) << left << setfill(' ') << interval1distance;
+    cout << setw(10) << left << interval1time;
+    cout << setw(10) << right << speed1 << endl;
+    
+    cout << setw(18) << left << setfill('.') << "Interval 2";
+    cout << setw(12) << left << setfill(' ') << interval2distance;
+    cout << setw(10) << left << interval2time;
+    cout << setw(10) << right << speed2 << endl;
+    
+    cout << setw(18) << left << setfill('.') << "Interval 3";
+    cout << setw(12) << left << setfill(' ') << interval3distance;
+    cout << setw(10) << left << interval3time;
+    cout << setw(10) << right << speed3 << endl;
+    
+    cout << setw(18) << left << setfill('.') << "Interval 4";
+    cout << setw(12) << left << setfill(' ') << interval4distance;
+    cout << setw(10) << left << interval4time;
+    cout << setw(10) << right << speed4 << endl;
+    
+    cout << setw(18) << left << setfill('.') << "Interval 5";
+    cout << setw(12) << left << setfill(' ') << interval5distance;
+    cout << setw(10) << left << interval5time;
+    cout << setw(10) << right << speed5 << endl;
+    
+    cout << endl;
+    
+    cout << "The average speed for the entire course was " << averagespeed << " MPH.\n";
+    
+    
+    return 0;
+}
