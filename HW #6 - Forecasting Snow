@@ -1,0 +1,58 @@
+//  Mark Allred
+//  A01647260
+//  HW #6 - Snow Forecast
+//  Program 'forecasts' snow using a random number generator and a ranger
+
+#include <iostream>
+#include <iomanip>
+
+
+using namespace std;
+
+
+int main ()
+{
+
+  int minsnow;
+  int maxsnow;
+  string skiresort;
+
+  cout << "I will forecast how much many inches of snow will fall this weekend.\n";
+  cout << "You get to pick the range!\n";
+  cout << "Enter the minimum amount of snow that will fall in one day: ";
+  cin >> minsnow;
+  cout << endl;
+
+  cout << "Enter the maximum amount of snow that will fall in one day: ";
+  cin >> maxsnow;
+  cout << endl;
+
+  cout << "Enter the name of the ski resort: ";
+  cin.ignore();
+  getline(cin,skiresort);
+  cout << endl;
+
+  int seed = static_cast<int>(time(0));
+  srand(seed);
+  int fridaysnow;
+  fridaysnow = rand()%(maxsnow - minsnow) + minsnow;
+  int saturdaysnow;
+  saturdaysnow = rand()%(maxsnow - minsnow) + minsnow;
+  int sundaysnow;
+  sundaysnow = rand()%(maxsnow - minsnow) + minsnow;
+
+  if (minsnow > maxsnow)
+  {
+    cout << "The maximum snowfall entered is less than the minimum snowfall." << endl << "No snowfall reported at " << skiresort << ".";
+  }
+  else
+  {
+    cout << "The local forecast for snowfall at " << skiresort << " this weekend:\n";
+    cout << "Friday: " << fridaysnow << " inches\n";
+    cout << "Saturday: " << saturdaysnow << " inches\n";
+    cout << "Sunday: " << sundaysnow << " inches\n";
+    cout << "Enjoy the snow!\n";
+  }
+
+  return 0;
+}
