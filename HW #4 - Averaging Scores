@@ -1,0 +1,65 @@
+// Mark Allred
+// A01647260
+// HW #4 Averaging Scores
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// collects test scores, displays them to the screen and reports the average
+int main()
+{
+    const int DIVIDINGNUMBER = 6;
+    
+    // Round to whole number for average
+    cout << setprecision(2);
+    
+    // collects scores
+    int score1;
+    cout << "Input your first test score: ";
+    cin >> score1;
+    
+    int score2;
+    cout << "Input your second test score: ";
+    cin >> score2;
+    
+    int score3;
+    cout << "Input your third test score: ";
+    cin >> score3;
+    
+    int score4;
+    cout << "Input your fourth test score: ";
+    cin >> score4;
+    
+    int score5;
+    cout << "Input your fifth test score: ";
+    cin >> score5;
+    
+    int score6;
+    cout << "Input your sixth test score: ";
+    cin >> score6;
+    
+    cout << endl;
+    
+    // sums scores
+    int sum;
+    sum = score1 + score2 + score3 + score4 + score5 + score6;
+    
+    // determines average
+    float average;
+    average = static_cast <double> (sum)  / DIVIDINGNUMBER;
+    
+
+    // reports test scores and average
+    cout << "You received the following test scores:" << endl;
+    cout << "Score from Test 1:  " << score1 << endl;
+    cout << "Score from Test 2:  " << score2 << endl;
+    cout << "Score from Test 3:  " << score3 << endl;
+    cout << "Score from Test 4:  " << score4 << endl;
+    cout << "Score from Test 5:  " << score5 << endl;
+    cout << "Score from Test 6:  " << score6 << endl;
+    cout << "Average test score: " << average << endl;
+
+    return 0;
+}
